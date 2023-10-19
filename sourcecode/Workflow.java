@@ -3,6 +3,7 @@ import java.util.Queue;
 
 /**
  * This class represents a workflow object.
+ * @author M. Phan
  */
 public class Workflow{
 
