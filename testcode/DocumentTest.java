@@ -3,6 +3,10 @@ import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tester for Document.
+ * @author M. Phan
+ */
 public class DocumentTest {
     
     @Test
