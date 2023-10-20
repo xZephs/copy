@@ -13,6 +13,7 @@ public class Applicant implements Person{
         }
         return ""; //return the information of the immigrant
     }
+    
     private Applicant() //private applicant constructor
     {
         this.name = "No Name"; //default values for an empty constructor
@@ -21,6 +22,7 @@ public class Applicant implements Person{
         this.realID = 12345;
         this.email = "abced@gmail.com";
     }
+    
     private Applicant(String name, String address, int age, int realID, String email)
     {
         this.name = name; //assign the respective variables with the corresponding arguments passed in
@@ -29,49 +31,61 @@ public class Applicant implements Person{
         this.realID = realID;
         this.email = email;
     }
+    
     public String getName() //various getters (for testing purposes mainly)
     {
         return this.name;
     }
+    
     public String getAddress()
     {
         return this.address;
     }
+    
     public int getAge()
     {
         return this.age;
     }
+    
     public int getID()
     {
         return this.realID;
     }
+    
     public String getEmail(){
         return this.email;
     }
+    
     public void setName(String name) //various setters (for testing purposes)
     {
         this.name = name;
     }
+    
     public void setAddress(String address)
     {
         this.address = address;
     }
+    
     public void setAge(int age)
     {
         this.age = age;
     }
+    
     public void setID(int ID)
     {
         this.realID = ID;
     }
+    
     public void setEmail(String email)
     {
         this.email = email;
     }
+    
     public static Applicant createApplicant() { //public method used to access the default constructor
         Applicant temp = null;
         return temp;
     }
+    
     public static Applicant createApplicant(String name, String address, int age, int realID, String email) //public method used to indirectly access constructor w/ arguments
     {
         if(name == null || address == null || age <=0 || realID<=0 || age >110 || realID > 9999999 || email == null)
@@ -84,6 +98,7 @@ public class Applicant implements Person{
             return temp;
         }
     }
+    
     public static boolean verifyApplicant(Applicant x) //verifyApplicant will make a call to an API (to be implemented) which helps validate the information provided.
     {
         if(x == null)
