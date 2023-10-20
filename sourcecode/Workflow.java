@@ -64,6 +64,14 @@ public class Workflow{
     return "";
    }
 
-   
+   /**
+    * Show the remaining steps in line.
+    * @return
+    */
+   public String getRemainingSteps() {
+      return "";
+   }
+
+
 
 }
