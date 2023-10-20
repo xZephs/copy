@@ -10,16 +10,18 @@ import org.junit.jupiter.api.Test;
  */
 public class WorkflowTest {
 
+    Workflow w = Workflow.createWorkflow();
+    
     @Test
     void testCreateWorkflow(){
 
         //checking return type of createWorkflow()
+        assertNotNull(w);
         assertEquals(w, Workflow.class);
 
     }
 
     //Instantiate objects for testing purposes
-    Workflow w = Workflow.createWorkflow();
     Immigrant i = Immigrant.createImmigrant("David","86 Braddock Road", 25, 12345);
     Document d = Document.createDoc(i,2 , 0);
 
@@ -40,6 +42,23 @@ public class WorkflowTest {
         //if the approval set the flag to finished, workflow should indicate that it has ended.
         w.updateData("Approval", d, true);
         assertEquals(w.isCompleted(),true);
+        
+    }
+
+    @Test
+    void testGetRemainingSteps(){
+        Workflow wf = Workflow.createWorkflow();
+
+        assertEquals(wf.getRemainingSteps(), "Data Entry, Review, Approval");    
+        
+        //steps should be popped out after data is being updated.
+        w.updateData("Data Entry", d);
+        assertEquals(wf.getRemainingSteps(), "Review, Approval");
+        w.updateData("Review", d);
+        assertEquals(wf.getRemainingSteps(), "Approval");
+        w.updateData("Approval", d, true);
+        assertEquals(wf.getRemainingSteps(), "");
+
         
     }
 
