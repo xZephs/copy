@@ -38,7 +38,7 @@ public class Immigrant implements Person{
     {
         return this.age;
     }
-    public int getID()
+    public int getRealID()
     {
         return this.realID;
     }
