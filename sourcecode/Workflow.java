@@ -5,73 +5,90 @@ import java.util.Queue;
  * This class represents a workflow object.
  * @author M. Phan
  */
-public class Workflow{
+public class Workflow {
 
-   Queue<String> steps;
-   boolean isCompleted;
-   Document doc;
+    private static Queue<String> steps;
+    private static boolean isCompleted;
+    private static Document doc;
 
-   /**
-    * Private constructor to create a Workflow object.
-    */
-   private Workflow(){
-      steps = new LinkedList<>();
-      steps.add("Data Entry");
-      steps.add("Review");
-      steps.add("Approval");
-      isCompleted = false;
-   }
+    // Static initialization block
+    static boolean init(Document d){
+        if (d == null) return false;
+        steps = new LinkedList<>();
+        steps.add("Review");
+        steps.add("Approval");
+        isCompleted = false;
+        return true;
+    }
 
-   public static Workflow createWorkflow(){
-    return new Workflow();
+    //external method to createWorkflow
+    public static boolean createWorkflow(Document d) {
+        return init(d);
+    }
 
-   }
+    public static void setDoc(Document d){
+        doc = d;
+    }
 
-   public Document getDoc(){
-      return this.doc;
-   }
+    public static Document getDoc() {
+        return doc;
+    }
 
-   public boolean isCompleted(){
-      return isCompleted;
-   }
+    public static String getCurrStep(){
+        return steps.peek();
+    }
 
-   /**
-    * This method is used to update in Data Entry and Review
-    * @param stepname
-    * @param d
-    * @return true if data is updated successfully, false otherwise.
-    */
-   public boolean updateData(String stepname, Document d){
-    return false;
-   }
+    public static void setCompleted(){
+        isCompleted = true;
+    }
 
-   /**
-    * This method is used to update in Approval
-    * @param stepname
-    * @param d
-    * @param flag
-    * @return true if data is updated successfully, false otherwise.
-    */
-   public boolean updateData(String stepname, Document d, boolean flag){
-    return false;
-   }
-
-   /**
-    * Show the current status of the workflow
-    * @return
-    */
-   public String showStatus(){
-    return "";
-   }
-
-   /**
-    * Show the remaining steps in line.
-    * @return
-    */
-   public String getRemainingSteps() {
-      return "";
-   }
+    public static boolean isCompleted() {
+        return isCompleted;
+    }
 
 
+    /**
+     * This method is used to update.
+     *
+     * @param stepname
+     * @param d
+     * @param flag to indicate whether this process is completed 
+     * @return true if data is updated successfully, false otherwise.
+     */
+    public static boolean updateData(String stepname, Document d, boolean flag) {
+        if (stepname.equals("Review")){
+            if (flag){
+                steps.remove();
+            }
+        }
+        if (stepname.equals("Approval")){
+            steps.remove();
+            if(flag){
+                setCompleted();
+            }
+            else{
+                steps.add("Review");
+                steps.add("Approval");
+            }
+        }
+        return false;
+    }
 
+    /**
+     * Show the current status of the workflow.
+     *
+     * @return
+     */
+    public static String showStatus() {
+        return "";
+    }
+
+    /**
+     * Show the remaining steps in line.
+     *
+     * @return
+     */
+    public static String getRemainingSteps() {
+        return "";
+    }
 }
