@@ -25,7 +25,32 @@ public class Document {
      * @return
      */
     public static Document createDoc(Immigrant i, Applicant a, int form, int id){
-        return null;
+        Document d = new Document(i,a,form,id);
+        return d;
+    }
+
+    public Applicant geApplicant(){
+        return this.applicant;
+    }
+
+    public Immigrant getImmigrant(){
+        return this.immigrant;
+    }
+
+    public int getForm(){
+        return form;
+    }
+
+    public void setForm(int f){
+        form = f;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 
     /**
