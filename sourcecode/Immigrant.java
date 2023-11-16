@@ -70,7 +70,7 @@ public class Immigrant implements Person{
         }
         else
         {
-            Immigrant temp = null; //if input is valid, create an immigrant instance using constructor, then return
+            Immigrant temp = new Immigrant(name,address,age,realID);; //if input is valid, create an immigrant instance using constructor, then return
             return temp;
         }
     }
