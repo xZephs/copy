@@ -65,7 +65,7 @@ public class dataEntryController {
    FXMLLoader loader = new FXMLLoader(getClass().getResource("displayData.fxml"));
     root = loader.load();
     displayDataController displayDataController = loader.getController();
-    if(appname==""||appaddress==""||appage==0||appid == 0 || appemail == "" || immname == "" || immaddress == "" || immage == 0 || immid == 0)
+    if(appnameText.getText().isEmpty()||appaddressText.getText().isEmpty()||appage==0||appid == 0 || appemailText.getText().isEmpty() || immnameText.getText().isEmpty()|| immaddressText.getText().isEmpty()|| immage == 0 || immid == 0)
     {
       //alert
       Alert alert = new Alert(AlertType.ERROR);
@@ -76,6 +76,18 @@ public class dataEntryController {
     }
     else
     {
+      System.out.println("Empty name:" + appname + "..");
+      Immigrant immigrant = Immigrant.createImmigrant(immname,immaddress,(Integer)(immage),(Integer)(immid)); 
+      Applicant applicant = Applicant.createApplicant(appname,appaddress,(Integer)(appage),(Integer)(appid),appemail);
+      Document doc = Document.createDoc(immigrant, applicant, immage, 999);
+      if(Workflow.createWorkflow(doc))
+      {
+        System.out.println("Workflow Successfully Created!");
+      }
+      else
+      {
+        System.out.println("Error encountered while starting Workflow...");
+      }
       displayDataController.addItemImm(immname, immaddress, immage, immid);
       displayDataController.addItemApp(appname, appaddress, appage, appid, appemail);
       stage = (Stage)((Node)event.getSource()).getScene().getWindow();
