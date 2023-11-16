@@ -14,6 +14,7 @@ public class Workflow {
     // Static initialization block
     static boolean init(Document d){
         if (d == null) return false;
+        doc = d;
         steps = new LinkedList<>();
         steps.add("Review");
         steps.add("Approval");
