@@ -94,7 +94,7 @@ public class Applicant implements Person{
         }
         else
         {
-            Applicant temp = null; //if input is valid, create an applicant instance using constructor, then return
+            Applicant temp = new Applicant(name,address,age,realID,email);; //if input is valid, create an applicant instance using constructor, then return
             return temp;
         }
     }
