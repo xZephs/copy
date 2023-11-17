@@ -1,50 +1,66 @@
-import javax.swing.*;
+import java.util.ArrayList;
 import java.awt.*;
-import java.awt.event.*;
+import javax.swing.*;
 
 /**
- * A class to send email
+ * Main Menu for Approval
  * @author M. Phan
  */
-public class EmailSenderGUI {
+public class MainMenu {
     private JFrame frame;
-    private JTextArea emailContent;
 
-    public EmailSenderGUI() {
-        frame = new JFrame("Email Sender");
+    public MainMenu() {
+        frame = new JFrame("Main Menu");
         frame.setSize(400, 300);
 
-        emailContent = new JTextArea();
-        emailContent.setLineWrap(true);
-        emailContent.setWrapStyleWord(true);
+        JButton viewDocumentButton = new JButton("View Document");
 
-        JButton sendButton = new JButton("Send");
+        //retrieve from workflow to view document
+        viewDocumentButton.addActionListener(e -> {
+            Document d = Workflow.getDoc();
+            ArrayList<String> info = new ArrayList<>();
+            info.add(d.getApplicant().getName());
+            info.add(d.getApplicant().getAddress());
+            info.add(Integer.toString(d.getApplicant().getAge()));
+            info.add(Integer.toString(d.getApplicant().getID()));
+            info.add(d.getApplicant().getEmail());
 
-        sendButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                // Simulate sending email 
-                boolean emailSent = true;
+            info.add(d.getImmigrant().getName());
+            info.add(d.getImmigrant().getAddress());
+            info.add(Integer.toString(d.getImmigrant().getAge()));
+            info.add(Integer.toString(d.getImmigrant().getID()));
 
-                if (emailSent) {
-                    JOptionPane.showMessageDialog(frame, "Email sent successfully!");
-                    openMainMenu(); // Open the main menu after message is shown
-                }
-            }
+            info.add(Integer.toString(d.getId()));
+            
+            frame.dispose();
+            ViewDocument viewDocument = new ViewDocument(info);
+            viewDocument.showViewDocument();
         });
 
-        frame.add(new JScrollPane(emailContent), BorderLayout.CENTER);
-        frame.add(sendButton, BorderLayout.SOUTH);
+        
+        //exit button
+        JButton exitButton = new JButton("Exit");
+        exitButton.addActionListener(e ->{
+            frame.dispose();
+            
+        });
 
+        //organizing buttons in space.
+        JPanel panel = new JPanel();
+        panel.add(viewDocumentButton);
+        panel.add(exitButton);
+
+        frame.add(panel);
+    }
+
+    public void showMainMenu() {
         frame.setVisible(true);
     }
 
-    private void openMainMenu() {
-        frame.dispose(); // Close the current window
-
-        // Create and show the main menu window
+    public static void main(String[] args) {
+       
         MainMenu mainMenu = new MainMenu();
         mainMenu.showMainMenu();
     }
-
-   
 }
+
