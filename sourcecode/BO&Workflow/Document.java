@@ -29,7 +29,7 @@ public class Document {
         return d;
     }
 
-    public Applicant geApplicant(){
+    public Applicant getApplicant(){
         return this.applicant;
     }
 
@@ -58,10 +58,11 @@ public class Document {
      * @return
      */
     public String display(){
+        //UNSUPPORTED
         return "";
     }
 
-    //Document can be modified via a set of getters.
+   
 
 
 
