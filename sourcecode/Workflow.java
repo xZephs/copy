@@ -1,3 +1,4 @@
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -7,9 +8,9 @@ import java.util.Queue;
  */
 public class Workflow {
 
-    private static Queue<String> steps;
-    private static boolean isCompleted;
-    private static Document doc;
+    static Queue<String> steps;
+    static boolean isCompleted;
+    static Document doc;
 
     // Static initialization block
     static boolean init(Document d){
@@ -27,6 +28,7 @@ public class Workflow {
         return init(d);
     }
 
+    //setters and getters
     public static void setDoc(Document d){
         doc = d;
     }
@@ -78,18 +80,25 @@ public class Workflow {
     /**
      * Show the current status of the workflow.
      *
-     * @return
+     * @return the current status
      */
     public static String showStatus() {
-        return "";
+        if (!isCompleted) return steps.peek();
+        return "Completed.";
     }
 
     /**
      * Show the remaining steps in line.
      *
-     * @return
+     * @return remaining steps
      */
     public static String getRemainingSteps() {
-        return "";
+        StringBuilder s = new StringBuilder();
+        if (steps.peek() != null){
+            for(String step: steps){
+                s.append(step + " ");
+            }
+        }
+        return s.toString().trim();
     }
 }
