@@ -3,7 +3,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class ImmigrantTest{
+public class ImmigrantTest{
   @Test
   //@SuppressWarnings("deprecation")
   void instantiateTestNull() //test whether createImmigrant even creates an immigrant instance at all
