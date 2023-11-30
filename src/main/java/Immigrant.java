@@ -10,7 +10,10 @@ public class Immigrant implements Person{
         {
             return null; //input validation; if any fields are outside of the allowed ranges/values, return null as an indication of such
         }
-        return ""; //return the information of the immigrant
+        else
+        {
+            return "Name: " + this.name + ", " +  "Address: " + this.address + ", " + "Age: " + this.age + ", " + "ID Number: " + this.realID;
+        } //return the information of the immigrant
     }
     private Immigrant() //private immigrant constructor
     {
@@ -59,7 +62,7 @@ public class Immigrant implements Person{
         this.realID = ID;
     }
     public static Immigrant createImmigrant() { //public method used to access the default constructor
-        Immigrant temp = null;
+        Immigrant temp = new Immigrant();
         return temp;
     }
     public static Immigrant createImmigrant(String name, String address, int age, int realID) //public method used to indirectly access constructor w/ arguments
@@ -70,7 +73,7 @@ public class Immigrant implements Person{
         }
         else
         {
-            Immigrant temp = new Immigrant(name,address,age,realID);; //if input is valid, create an immigrant instance using constructor, then return
+            Immigrant temp = new Immigrant(name,address,age,realID); //if input is valid, create an immigrant instance using constructor, then return
             return temp;
         }
     }
@@ -81,7 +84,7 @@ public class Immigrant implements Person{
             return false;
         }
         //verify immigrant by making call to database
-        return false;
+        return true;
     }
     
     
