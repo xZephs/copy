@@ -101,43 +101,43 @@ under the License.
   </dependencies>
 
   <profiles>
-    <profile>
-      <id>run-its</id>
-      <properties>
-        <maven.it.failure.ignore>false</maven.it.failure.ignore>
-      </properties>
-      <build>
-        <sourceDirectory>sourcecode/BO&Workflow</sourceDirectory>
-        <testSourceDirectory>testcode</testSourceDirectory>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-invoker-plugin</artifactId>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>install</goal>
-                  <goal>integration-test</goal>
-                  <goal>verify</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
-              <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
-              <settingsFile>src/it/settings.xml</settingsFile>
-              <ignoreFailures>${maven.it.failure.ignore}</ignoreFailures>
-              <properties>
-                <maven.compiler.source>${maven.compiler.source}</maven.compiler.source>
-                <maven.compiler.target>${maven.compiler.target}</maven.compiler.target>
-                <!-- e.g. ensure that Java7 picks up TLSv1.2 when connecting with Central -->
-                <https.protocols>${https.protocols}</https.protocols>
-              </properties>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
+  <profile>
+    <id>run-its</id>
+    <properties>
+      <maven.it.failure.ignore>false</maven.it.failure.ignore>
+    </properties>
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-invoker-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>install</goal>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+            <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+            <settingsFile>src/it/settings.xml</settingsFile>
+            <ignoreFailures>${maven.it.failure.ignore}</ignoreFailures>
+            <properties>
+              <maven.compiler.source>${maven.compiler.source}</maven.compiler.source>
+              <maven.compiler.target>${maven.compiler.target}</maven.compiler.target>
+              <!-- e.g. ensure that Java7 picks up TLSv1.2 when connecting with Central -->
+              <https.protocols>${https.protocols}</https.protocols>
+            </properties>
+          </configuration>
+        </plugin>
+      </plugins>
+      <sourceDirectory>sourcecode/BO&Workflow</sourceDirectory>
+      <testSourceDirectory>testcode</testSourceDirectory>
+    </build>
+  </profile>
+</profiles>
 
 </project>
