@@ -3,16 +3,16 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-class ApplicantTest{
+public class ApplicantTest{
   @Test
   //@SuppressWarnings("deprecation")
-  void instantiateTestNull() //test whether createApplicant even creates an Applicant instance at all
+  void instantiateTestNull() //test if createApplicant creates an Applicant instance with parameters
   {
     Applicant first = Applicant.createApplicant("Jeff Mike", "1475 Dog Street", 25, 10478, "abcde@gmail.com");
     assertNotNull(first);  
   }
   @Test
-  void instantiateCorrectTest() //test if the information entered is the same information returned
+  void instantiateCorrectTest() //test parameters entered are what returning.
   {
     Applicant temp = Applicant.createApplicant("Dummy Man", "47925 Silly Lane", 37, 475278, "12345@gmail.com");
     assertNotNull(temp);
@@ -24,7 +24,7 @@ class ApplicantTest{
     assertEquals("47925 Silly Lane", temp.getAddress());
     assertEquals("12345@gmail.com", temp.getEmail());
     assertTrue(temp.getAge()==37);
-    assertTrue(temp.getRealID() == 475278);
+    assertTrue(temp.getID() == 475278);
   }
   @Test
   void instantiateInvalidInputTest()
@@ -39,13 +39,13 @@ class ApplicantTest{
     assertNull(temp);
   }
   @Test
-  void defaultConstructorTestNull()//make sure that the default constructor makes something
+  void defaultConstructorTestNull()//test on default constructor to see if it actually make an instance
   {
     Applicant temp = Applicant.createApplicant();
     assertNotNull(temp);
   }
   @Test
-  void getInfoTestDefault() //run getInfo on the default constructor and test output
+  void getInfoTestDefault() //run getInfo method on the default constructor and test output
   {
     Applicant x = Applicant.createApplicant();   
     assertNotNull(x.getInfo());
@@ -53,7 +53,7 @@ class ApplicantTest{
 
   }
   @Test
-  void getInfoTest() //run getInfo with custom values
+  void getInfoTest() //run getInfo method with modified values
   {
     Applicant x = Applicant.createApplicant("Jeff Mike", "1475 Dog Street", 25, 10478, "12345@gmail.com");
     assertNotNull(x);
@@ -77,10 +77,10 @@ class ApplicantTest{
   void getInfoTestInvalid() //Check input validation from getInfo
   {
     Applicant y = Applicant.createApplicant("Bob", "41234 Test Road", 9, 0,"zxcvb@gmail.com");
-    assertNull(y.getInfo());
+    assertNull(y);
   }
   @Test
-  void testVerifyApplicant()  //test verify Applicant using a predetermined value
+  void testVerifyApplicant()  //use a set/default value to verify applicant
   {
     Applicant x = Applicant.createApplicant("Test Dummy", "9786 Biggie Smalls Court", 30, 92341,"asdfg@gmail.com");
     assertNotNull(x);

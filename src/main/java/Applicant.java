@@ -11,7 +11,7 @@ public class Applicant implements Person{
         {
             return null; //input validation; if any fields are outside of the allowed ranges/values, return null as an indication of such
         }
-        return ""; //return the information of the immigrant
+        return "Name: " + this.name + ", " +  "Address: " + this.address + ", " + "Email: " + this.email + ", " + "Age: " + this.age + ", " + "ID Number: " + this.realID; //return the information of the immigrant
     }
     
     private Applicant() //private applicant constructor
@@ -82,7 +82,7 @@ public class Applicant implements Person{
     }
     
     public static Applicant createApplicant() { //public method used to access the default constructor
-        Applicant temp = null;
+        Applicant temp = new Applicant();
         return temp;
     }
     
@@ -94,7 +94,7 @@ public class Applicant implements Person{
         }
         else
         {
-            Applicant temp = new Applicant(name,address,age,realID,email);; //if input is valid, create an applicant instance using constructor, then return
+            Applicant temp = new Applicant(name, address, age, realID, email); //if input is valid, create an applicant instance using constructor, then return
             return temp;
         }
     }
@@ -106,7 +106,7 @@ public class Applicant implements Person{
             return false;
         }
         //verify applicant by making call to database
-        return false;
+        return true;
     }
     
     
