@@ -25,6 +25,7 @@ public class Document {
      * @return
      */
     public static Document createDoc(Immigrant i, Applicant a, int form, int id){
+        if (i == null || a == null || form < 0 || id < 0){return null;}
         Document d = new Document(i,a,form,id);
         return d;
     }
