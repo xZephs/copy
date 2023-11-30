@@ -107,8 +107,8 @@ under the License.
         <maven.it.failure.ignore>false</maven.it.failure.ignore>
       </properties>
       <build>
-        <sourceDirectory>copy/sourcecode/bo&workflow</sourceDirectory>
-        <testSourceDirectory>copy/testcode</testSourceDirectory>
+        <sourceDirectory>sourcecode/BO&Workflow</sourceDirectory>
+        <testSourceDirectory>testcode</testSourceDirectory>
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
