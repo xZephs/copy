@@ -1,12 +1,12 @@
 //Author: Arkan Jumani 
 import static org.hamcrest.CoreMatchers.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 import org.junit.jupiter.api.Test;
 
-public class ImmigrantTest{
-  
+class ImmigrantTest{
   @Test
-  void testInstantiateNull() //test whether createImmigrant even creates an immigrant instance at all
+  //@SuppressWarnings("deprecation")
+  void instantiateTestNull() //test whether createImmigrant even creates an immigrant instance at all
   {
     Immigrant first = Immigrant.createImmigrant("Jeff Mike", "1475 Dog Street", 25, 10478);
     assertNotNull(first);  
@@ -75,7 +75,8 @@ public class ImmigrantTest{
   void getInfoTestInvalid() //Check input validation from getInfo
   {
     Immigrant y = Immigrant.createImmigrant("Bob", "41234 Test Road", 9, 0);
-    assertNull(y.getInfo());
+    assertNull(y);
+    //assertNull(y.getInfo());
   }
   @Test
   void testVerifyImmigrant()  //test verify immigrant using a predetermined value
@@ -90,8 +91,4 @@ public class ImmigrantTest{
     Immigrant y = null;
     assertFalse(Immigrant.verifyImmigrant(y));
   }
-  
-  
-  
-
 } 
