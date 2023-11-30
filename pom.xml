@@ -104,6 +104,7 @@ under the License.
   <profile>
     <id>run-its</id>
     <properties>
+      <skip.checkstyle>true</skip.checkstyle>
       <maven.it.failure.ignore>false</maven.it.failure.ignore>
     </properties>
     <build>
