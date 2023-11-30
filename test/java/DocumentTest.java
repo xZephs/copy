@@ -27,14 +27,4 @@ public class DocumentTest {
 
     }
 
-    @Test
-    void testDisplay() {
-        //Objects instantiation for testing
-        Applicant a = Applicant.createApplicant("Andrew", "Braddock", 25, 12345, "@gmail");
-        Immigrant i = Immigrant.createImmigrant("Tony", "Braddock", 25, 12345);
-        Document d = Document.createDoc(i, a, 23, 1);
-
-        //displaying content of Document
-        assertEquals(d.display(), "Applicant: Andrew \nImmigrant: Tony \n Form: 23\nID: 1");
-    }
 }

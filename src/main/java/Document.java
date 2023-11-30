@@ -53,15 +53,7 @@ public class Document {
         this.id = id;
     }
 
-    /**
-     * This method displays the document.
-     * @return
-     */
-    public String display(){
-        //UNSUPPORTED
-        return "";
-    }
-
+    
    
 
 
