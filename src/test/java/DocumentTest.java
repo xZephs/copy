@@ -32,7 +32,8 @@ public class DocumentTest {
 
     }
 
-    @Test invalid3(){
+    @Test 
+    void invalid3(){
         assertNull(Document.createDoc(null,a,30,1));   
     }
 
