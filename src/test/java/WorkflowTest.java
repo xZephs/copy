@@ -18,9 +18,9 @@ public class WorkflowTest {
     @Test
     void testCreateWorkflow(){
         assertFalse(Workflow.createWorkflow(null));
+        assertTrue(Workflow.createWorkflow(d));
     }
 
-    Workflow.createWorkflow(d);
     
     @Test
     void testInitialSteps(){
