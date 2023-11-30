@@ -105,8 +105,6 @@ under the License.
     <id>run-its</id>
     <properties>
       <maven.it.failure.ignore>false</maven.it.failure.ignore>
-      <src.dir>sourcecode/BO&Workflow</src.dir>
-      <test.dir>testcode</test.dir>
     </properties>
     <build>
       <plugins>
