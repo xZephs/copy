@@ -63,7 +63,7 @@ public class ApplicantTest{
     assertTrue(x.getAge()>=0 && x.getAge()<=110);
     assertTrue(x.getAge()>=0 && x.getAge()<=9999999);    
     assertNotNull(x.getInfo());
-    assertEquals("Name: Jeff Mike, Address: 1475 Dog Street, Email: 12345@gmail.com Age: 25, ID Number: 10478", x.getInfo());
+    assertEquals("Name: Jeff Mike, Address: 1475 Dog Street, Email: 12345@gmail.com, Age: 25, ID Number: 10478", x.getInfo());
   }
   @Test
   void getInfoNullTest() //check null handling from getInfo
