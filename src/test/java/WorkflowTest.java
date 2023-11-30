@@ -61,6 +61,9 @@ public class WorkflowTest {
         assertFalse(Workflow.isCompleted());
 
         Workflow.updateData("Review", d, true);
+        assertEquals(Workflow.showStatus(), "Approval");
+        assertEquals(Workflow.getRemainingSteps(), "Approval");
+        assertFalse(Workflow.isCompleted());
     }
 
     @Test 
