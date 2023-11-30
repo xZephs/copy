@@ -1,6 +1,6 @@
 //Author: Phu Nguyen 
 import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class ApplicantTest{
