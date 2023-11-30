@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
  */
 public class DocumentTest {
     
+    Applicant a = Applicant.createApplicant("Andrew", "Braddock", 25, 12345, "@gmail");
+    Immigrant i = Immigrant.createImmigrant("Andrew", "Braddock", 25, 12345);
+    
     @Test
     void testCreateDocument(){
-        Applicant a = Applicant.createApplicant("Andrew", "Braddock", 25, 12345, "@gmail");
-        Immigrant i = Immigrant.createImmigrant("Andrew", "Braddock", 25, 12345);
-        
         assertNull(Document.createDoc(null,null,-1,-1));       //All invalid valid inputs
         assertNull(Document.createDoc(i,a,200,1));             //Invalid age input
         assertNull(Document.createDoc(null,a,30,1));           //Invalid immigrant input
@@ -25,6 +25,15 @@ public class DocumentTest {
         Document d = Document.createDoc(i, a, 23, 1);
         assertNotNull(d);
 
+    }
+
+    @Test
+    void invalid2(){
+        assertNull(Document.createDoc(i,a,200,1));   
+    }
+
+    @Test invalid3(){
+        assertNull(Document.createDoc(null,a,30,1));   
     }
 
 }
