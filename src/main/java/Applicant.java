@@ -20,7 +20,7 @@ public class Applicant implements Person{
         this.address="1234 Default Street";
         this.age = 1;
         this.realID = 12345;
-        this.email = "abced@gmail.com";
+        this.email = "abcde@gmail.com";
     }
     
     private Applicant(String name, String address, int age, int realID, String email)
