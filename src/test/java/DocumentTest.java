@@ -36,8 +36,8 @@ public class DocumentTest {
     @Test 
     void testSuccess(){
         //Successfully create Document
-        assertEquals(Document.createDoc(i, a, 23, 1), Document.class);
         Document d = Document.createDoc(i, a, 23, 1);
+        assertTrue(d instanceof Document);
         assertNotNull(d);
         assertEquals(d.getApplicant(), a);
     }
