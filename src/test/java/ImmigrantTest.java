@@ -3,10 +3,10 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-class ImmigrantTest{
+public class ImmigrantTest{
+  
   @Test
-  //@SuppressWarnings("deprecation")
-  void instantiateTestNull() //test whether createImmigrant even creates an immigrant instance at all
+  void testInstantiateNull() //test whether createImmigrant even creates an immigrant instance at all
   {
     Immigrant first = Immigrant.createImmigrant("Jeff Mike", "1475 Dog Street", 25, 10478);
     assertNotNull(first);  
