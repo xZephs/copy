@@ -23,7 +23,7 @@ class ImmigrantTest{
     assertEquals("Dummy Man", temp.getName());
     assertEquals("47925 Silly Lane", temp.getAddress());
     assertTrue(temp.getAge()==37);
-    assertTrue(temp.getID() == 475278);
+    assertTrue(temp.getRealID() == 475278);
   }
   @Test
   void instantiateInvalidInputTest()
