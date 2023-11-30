@@ -23,7 +23,7 @@ jobs:
       run: mvn clean install -Drat.numUnapprovedLicenses=100
 
     - name: Run Tests
-      run: mvn test
+      run: mvn test -Drat.numUnapprovedLicenses=100
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
