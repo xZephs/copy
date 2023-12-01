@@ -60,6 +60,11 @@
       <version>${mavenVersion}</version>
     </dependency>
     <dependency>
+      <groupId>org.openclover</groupId>
+      <artifactId>clover-maven-plugin</artifactId>
+      <version>4.5.1</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-artifact</artifactId>
       <version>${mavenVersion}</version>
@@ -155,7 +160,7 @@
         <plugin>
               <groupId>com.atlassian.maven.plugins</groupId>
               <artifactId>clover-maven-plugin</artifactId>
-              <version>4.1.1</version>
+              <version>4.5.1</version>
               <configuration>
                 <generateJSON>true</generateJSON>
                 <generateHTML>true</generateHTML>
