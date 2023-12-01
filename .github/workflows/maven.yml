@@ -33,6 +33,9 @@ jobs:
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
+    - name: Clover
+      run: mvn clean clover:setup test clover:clover
+
 
   
 
