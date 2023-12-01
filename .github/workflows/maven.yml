@@ -34,7 +34,7 @@ jobs:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Clover
-      run: mvn clean clover:setup test clover:clover
+      run: mvn help:describe -Dplugin=org.apache.maven.plugins:maven-clover-plugin
 
 
   
