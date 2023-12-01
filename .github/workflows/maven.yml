@@ -34,7 +34,7 @@ jobs:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Clover
-      run: mvn clean clover:setup test clover:aggregate clover:clover
+      run: mvn clean test clover:aggregate clover:clover
 
 
 
