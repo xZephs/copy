@@ -155,6 +155,7 @@
         <plugin>
               <groupId>com.atlassian.maven.plugins</groupId>
               <artifactId>clover-maven-plugin</artifactId>
+              <version>4.1.1</version>
               <configuration>
                 <generateJSON>true</generateJSON>
                 <generateHTML>true</generateHTML>
