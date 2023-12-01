@@ -32,7 +32,7 @@ jobs:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Clover Code Coverage
-      run: mvn clean clover:setup test clover:aggregate clover:clover
+      run: mvn clean clover:setup test clover:clover
 
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
